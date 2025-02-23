@@ -18,10 +18,17 @@ class Company extends Model
         'rate',
         'notes',
         'status',
+        'subscription_plan_id'
      ];
 
-     public function users()
-     {
+    public function users()
+    {
         return $this->hasMany(User::class);
-     }
+    }
+
+    public function subscriptionPlan()
+    {
+        return $this->belongsTo(SubscriptionPlan::class);
+    }
+
 }
