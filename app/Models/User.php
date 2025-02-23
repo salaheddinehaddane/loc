@@ -22,6 +22,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'last_name',
+        'first_name',
+        'phone',
+        'role',
+        'profile_image',
+        'is_active',
+        'company_id',
     ];
 
     /**
@@ -46,5 +53,10 @@ class User extends Authenticatable
             'password' => 'hashed',
             'role' => RoleEnum::class,
         ];
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
     }
 }
