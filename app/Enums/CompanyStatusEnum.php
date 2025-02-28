@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Enums\Enums;
+namespace App\Enums;
 
 enum CompanyStatusEnum : string
 {
     case ACTIVE = 'active';
     case INACTIVE = 'inactive';
-    case BLOCKED = 'blocked'; //bla
+    case BLOCKED = 'blocked'; //blacklist
 }
