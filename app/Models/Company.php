@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\SubscriptionStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
@@ -15,10 +16,7 @@ class Company extends Model
         'address',
         'website',
         'description',
-        'rate',
-        'notes',
         'status',
-        'subscription_plan_id'
      ];
 
     public function users()
@@ -26,9 +24,16 @@ class Company extends Model
         return $this->hasMany(User::class);
     }
 
-    public function subscriptionPlan()
+    public function activeSubscription()
     {
-        return $this->belongsTo(SubscriptionPlan::class);
+        return $this->hasOne(SubscriptionPlan::class)
+            ->where('status', SubscriptionStatusEnum::ACTIVE->value)
+            ->where('end_date', '>=', now());
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(SubscriptionPlan::class);
     }
 
 }

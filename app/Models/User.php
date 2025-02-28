@@ -6,7 +6,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Enums\RoleEnum;
 
 class User extends Authenticatable
 {
@@ -25,7 +24,6 @@ class User extends Authenticatable
         'last_name',
         'first_name',
         'phone',
-        'role',
         'profile_image',
         'is_active',
         'company_id',
@@ -51,7 +49,6 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'role' => RoleEnum::class,
         ];
     }
 
