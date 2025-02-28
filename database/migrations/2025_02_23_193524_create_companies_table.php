@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\Enums\CompanyStatusEnum;
+use App\Enums\CompanyStatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
@@ -23,11 +23,13 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('website')->nullable();
             $table->text('description')->nullable();
-            $table->tinyInteger('rate')->default(1); // 1 - 5
-            $table->text('notes')->nullable();
             $table->enum('status', Arr::pluck(CompanyStatusEnum::cases(), 'value'))->default(CompanyStatusEnum::INACTIVE->value);
             $table->timestamps();
+
+            //indexes
+            $table->index('status', 'companies_status_index');
         });
+
 
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('company_id')->references('id')->on('companies');
@@ -39,10 +41,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
-
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('users_company_id_foreign');
         });
+        Schema::dropIfExists('companies');
     }
 };

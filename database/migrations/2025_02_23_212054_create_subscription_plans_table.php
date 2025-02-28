@@ -22,10 +22,9 @@ return new class extends Migration
             $table->json('features')->nullable();
             $table->string('description');
             $table->timestamps();
-        });
 
-        Schema::table('companies', function (Blueprint $table) {
-            $table->foreignId('subscription_plan_id')->references('id')->on('subscription_plans')->nullable();
+            //indexes
+            $table->index('is_active', 'subscription_plans_is_active_index');
         });
     }
 
@@ -35,9 +34,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('subscription_plans');
-
-        Schema::table('companies', function (Blueprint $table) {
-            $table->dropForeign(['subscription_plan_id']);
-        });
     }
 };

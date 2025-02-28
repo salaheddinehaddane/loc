@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('is_active')->default(true);
+            $table->string('key')->unique();
             $table->timestamps();
+        });
 
-            //indexes
-            $table->index('is_active', 'cities_is_active_index');
+        Schema::table('cars', function (Blueprint $table) {
+            $table->foreignId('category_id')->references('id')->on('categories');
         });
     }
 
@@ -27,10 +28,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->dropForeign(['city_id']);
-            $table->dropColumn('city_id');
+        Schema::table('cars', function (Blueprint $table) {
+            $table->dropForeign('category_id');
+            $table->dropColumn('category_id');
         });
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('categories');
+
     }
 };
