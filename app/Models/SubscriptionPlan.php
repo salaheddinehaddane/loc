@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubscriptionPlan extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'name',
         'price',
         'duration',
@@ -15,9 +15,9 @@ class SubscriptionPlan extends Model
         'is_active',
         'features',
         'description',
-     ];
+    ];
 
-     protected $casts = [
+    protected $casts = [
         'features' => 'array',
-     ];
+    ];
 }

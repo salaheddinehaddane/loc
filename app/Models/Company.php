@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-     protected $fillable=[
+    protected $fillable = [
         'name',
         'slug',
         'logo',
@@ -17,7 +17,7 @@ class Company extends Model
         'website',
         'description',
         'status',
-     ];
+    ];
 
     public function users()
     {
@@ -35,5 +35,4 @@ class Company extends Model
     {
         return $this->hasMany(SubscriptionPlan::class);
     }
-
 }

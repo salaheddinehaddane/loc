@@ -6,8 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -26,10 +25,9 @@ return new class extends Migration
             $table->enum('status', Arr::pluck(CompanyStatusEnum::cases(), 'value'))->default(CompanyStatusEnum::INACTIVE->value);
             $table->timestamps();
 
-            //indexes
+            // indexes
             $table->index('status', 'companies_status_index');
         });
-
 
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('company_id')->references('id')->on('companies');

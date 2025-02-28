@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum CompanyStatusEnum : string
+enum CompanyStatusEnum: string
 {
     case ACTIVE = 'active';
     case INACTIVE = 'inactive';
-    case BLOCKED = 'blocked'; //blacklist
+    case BLOCKED = 'blocked'; // blacklist
 }

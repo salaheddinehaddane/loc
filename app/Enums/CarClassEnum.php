@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum CarClassEnum : string
+enum CarClassEnum: string
 {
     case LUXURY = 'luxury';
     case MOYEN = 'moyen';
