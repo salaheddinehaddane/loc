@@ -1,0 +1,24 @@
+{
+    "preset": "laravel",
+    "exclude": [],
+    "rules": {
+        "new_with_parentheses": false,
+        "single_line_empty_body": false,
+        "type_declaration_spaces": true,
+        "native_type_declaration_casing": true,
+        "spaces_inside_parentheses": false,
+        "no_trailing_comma_in_singleline": true,
+        "no_unneeded_braces": true,
+        "blank_lines_before_namespace": false,
+
+        "single_space_around_construct": true,
+        "control_structure_braces": true,
+        "control_structure_continuation_position": true,
+        "declare_parentheses": true,
+        "no_multiple_statements_per_line": true,
+        "braces_position": false,
+        "statement_indentation": true,
+        "no_extra_blank_lines": true,
+        "compact_nullable_type_declaration": true
+    }
+}
