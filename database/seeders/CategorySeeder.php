@@ -14,6 +14,12 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
+                'name' => 'Family',
+                'key' => 'family',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'name' => 'Economy',
                 'key' => 'economy',
                 'created_at' => now(),
