@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\CompanyBranch;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CompanyBranchSeeder extends Seeder

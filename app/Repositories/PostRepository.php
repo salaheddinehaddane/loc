@@ -1,14 +1,13 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Dtos\PostFilterDto;
 use App\Enums\CarStatusEnum;
-use App\Enums\CompanyStatusEnum;
 use App\Models\Post;
 
 class PostRepository
 {
-
     public function getPosts(PostFilterDto $filters)
     {
 

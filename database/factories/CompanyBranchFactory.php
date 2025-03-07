@@ -26,7 +26,7 @@ class CompanyBranchFactory extends Factory
             'address' => $this->faker->address,
             'is_active' => $this->faker->randomElement([0, 1]),
             'company_id' => $this->faker->randomElement(Company::all())->id,
-            'city_id' => $this->faker->randomElement(City::all())->id
+            'city_id' => $this->faker->randomElement(City::all())->id,
         ];
     }
 }

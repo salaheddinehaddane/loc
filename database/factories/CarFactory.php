@@ -23,6 +23,7 @@ class CarFactory extends Factory
     {
         $startDate = $this->faker->dateTimeBetween('-2 months', '+1 month');
         $endDate = $this->faker->dateTimeBetween($startDate, '+1 month');
+
         return [
             'company_branch_id' => $this->faker->randomElement(CompanyBranch::all())->id,
             'brand_id' => $this->faker->randomElement(\App\Models\Brand::all())->id,
@@ -37,7 +38,7 @@ class CarFactory extends Factory
             'available_to' => $endDate,
             'status' => $this->faker->randomElement(CarStatusEnum::cases()),
             'class' => $this->faker->randomElement(CarClassEnum::cases()),
-            'no_of_seats' => $this->faker->randomElement([4, 5, 7, 8 , 9]),
+            'no_of_seats' => $this->faker->randomElement([4, 5, 7, 8, 9]),
             'no_of_doors' => $this->faker->randomElement([2, 4, 5]),
         ];
     }

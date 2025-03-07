@@ -27,6 +27,7 @@ class PostController extends Controller
     public function getPosts(PostFilterRequest $request)
     {
         $filters = PostFilterDto::fromRequest($request);
+
         return $this->response(
             PostResource::collection($this->postRepository->getPosts($filters)),
             200

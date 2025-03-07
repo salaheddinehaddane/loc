@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -23,7 +22,7 @@ return new class extends Migration
             $table->foreignId('company_id')->references('id')->on('companies');
             $table->foreignId('city_id')->references('id')->on('cities');
 
-            //indexes
+            // indexes
             $table->index('is_active', 'company_branches_active_index');
             $table->index('company_id', 'company_branches_company_id_index');
             $table->index(['city_id', 'is_active'], 'company_branches_city_active_index');

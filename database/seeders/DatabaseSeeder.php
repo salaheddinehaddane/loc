@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,7 +20,7 @@ class DatabaseSeeder extends Seeder
                 CompanySeeder::class,
                 CompanyBranchSeeder::class,
                 CarSeeder::class,
-                PostSeeder::class
+                PostSeeder::class,
             ]
         );
     }

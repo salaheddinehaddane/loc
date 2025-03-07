@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyBranch extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
         'slug',
@@ -19,10 +20,11 @@ class CompanyBranch extends Model
         'city_id',
     ];
 
-    public function city(){
+    public function city() {
         return $this->belongsTo(City::class);
     }
-    public function company(){
+
+    public function company() {
         return $this->belongsTo(Company::class);
     }
 }

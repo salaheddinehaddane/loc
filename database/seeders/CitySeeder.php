@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use App\Models\City;
@@ -13,29 +14,29 @@ class CitySeeder extends Seeder
     {
         $cities = [
             [
-                'name_en'    => "Marrakech",
-                'name_ar'    => "مراكش",
+                'name_en' => 'Marrakech',
+                'name_ar' => 'مراكش',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name_en'    => "Rabat",
-                'name_ar'    => "الرباط",
+                'name_en' => 'Rabat',
+                'name_ar' => 'الرباط',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name_en'    => "Casablanca",
-                'name_ar'    => "الدار البيضاء",
+                'name_en' => 'Casablanca',
+                'name_ar' => 'الدار البيضاء',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name_en'    => "Tanger",
-                'name_ar'    => "طنجة",
+                'name_en' => 'Tanger',
+                'name_ar' => 'طنجة',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
+            ],
         ];
 
         City::insert($cities);

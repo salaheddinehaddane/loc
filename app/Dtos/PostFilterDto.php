@@ -5,15 +5,25 @@ namespace App\Dtos;
 final readonly class PostFilterDto
 {
     public int $page;
+
     public ?int $cityId;
+
     public ?string $transmission;
+
     public ?string $fuelType;
+
     public ?int $model;
+
     public ?int $noOfSeats;
+
     public ?string $class;
+
     public ?array $priceRange;
+
     public ?string $brand;
+
     public ?string $category;
+
     public function __construct($request)
     {
         $this->page = $request->page ?? 1;
