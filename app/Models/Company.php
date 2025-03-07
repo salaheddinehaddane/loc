@@ -2,21 +2,27 @@
 
 namespace App\Models;
 
+use App\Enums\CompanyStatusEnum;
 use App\Enums\SubscriptionStatusEnum;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'slug',
         'logo',
         'phone',
         'email',
-        'address',
         'website',
-        'description',
         'status',
+    ];
+
+    protected $casts = [
+        'status' => CompanyStatusEnum::class,
     ];
 
     public function users()
@@ -27,12 +33,17 @@ class Company extends Model
     public function activeSubscription()
     {
         return $this->hasOne(SubscriptionPlan::class)
-            ->where('status', SubscriptionStatusEnum::ACTIVE->value)
+            ->where('status', SubscriptionStatusEnum::ACTIVE)
             ->where('end_date', '>=', now());
     }
 
     public function subscriptions()
     {
-        return $this->hasMany(SubscriptionPlan::class);
+        return $this->belongsToMany(SubscriptionPlan::class);
+    }
+
+    public function companyBranches()
+    {
+        return $this->hasMany(CompanyBranch::class);
     }
 }

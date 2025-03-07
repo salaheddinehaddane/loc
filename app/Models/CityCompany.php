@@ -10,6 +10,16 @@ class CityCompany extends Model
         'address',
         'city_id',
         'company_id',
-        'status',
+        'is_active',
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

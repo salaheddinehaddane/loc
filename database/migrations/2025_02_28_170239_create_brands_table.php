@@ -19,6 +19,7 @@ return new class extends Migration {
 
         Schema::table('cars', function (Blueprint $table) {
             $table->foreignId('brand_id')->references('id')->on('brands');
+            $table->index('brand_id', 'cars_brand_id_index');
         });
     }
 

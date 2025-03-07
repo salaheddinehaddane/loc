@@ -12,12 +12,9 @@ return new class extends Migration {
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('is_active')->default(true);
+            $table->string('name_en');
+            $table->string('name_ar');
             $table->timestamps();
-
-            // indexes
-            $table->index('is_active', 'cities_is_active_index');
         });
     }
 
