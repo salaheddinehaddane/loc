@@ -19,9 +19,7 @@ return new class extends Migration {
             $table->string('logo')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable()->unique();
-            $table->string('address')->nullable();
             $table->string('website')->nullable();
-            $table->text('description')->nullable();
             $table->enum('status', Arr::pluck(CompanyStatusEnum::cases(), 'value'))->default(CompanyStatusEnum::INACTIVE->value);
             $table->timestamps();
 

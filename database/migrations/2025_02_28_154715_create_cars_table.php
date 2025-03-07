@@ -16,7 +16,7 @@ return new class extends Migration {
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->references('id')->on('companies');
+            $table->foreignId('company_branch_id')->references('id')->on('company_branches');
             $table->string('registration_number')->unique();
             $table->integer('model');
             $table->enum('fuel_type', Arr::pluck(FuelTypeEnum::cases(), 'value'));
@@ -32,7 +32,8 @@ return new class extends Migration {
             $table->timestamps();
 
             // indexes
-            $table->index(['available_from', 'available_to'], 'cars_available_from_available_to_index');
+            $table->index('company_branch_id', 'cars_company_branch_id_index');
+            $table->index(['available_from', 'available_to', 'status'], 'cars_available_index');
             $table->index('status', 'cars_status_index');
             $table->index('fuel_type', 'cars_fuel_type_index');
             $table->index('transmission', 'cars_transmission_index');

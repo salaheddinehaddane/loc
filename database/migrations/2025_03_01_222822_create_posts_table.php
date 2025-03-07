@@ -12,13 +12,15 @@ return new class extends Migration {
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->references('id')->on('companies');
+            $table->foreignId('company_branch_id')->references('id')->on('company_branches');
             $table->foreignId('car_id')->references('id')->on('cars');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             // indexes
-            $table->unique(['company_id', 'car_id']);
+            $table->unique(['company_branch_id', 'car_id']);
+            $table->index(['company_branch_id', 'is_active'], 'posts_company_active_index');
+            $table->index(['car_id', 'is_active'], 'posts_car_active_index');
             $table->index('is_active', 'posts_is_active_index');
         });
     }
